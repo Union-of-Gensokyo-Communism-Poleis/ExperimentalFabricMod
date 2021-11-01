@@ -6,4 +6,6 @@ For setup instructions please see the [fabric wiki page](https://fabricmc.net/wi
 
 ## License
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+This mod uses MIT license
+
+Mod icon made by [dickprayuda](https://www.flaticon.com/authors/dickprayuda) from [Flaticon](https://www.flaticon.com/).

@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "experimental-fabric-mod",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Experimental Fabric Mod",
+  "description": "This is an experimental mod.",
   "authors": [
-    "Me!"
+    "Hikaze"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://have.ugcp.beer/",
+    "sources": "https://github.com/Union-of-Gensokyo-Communism-Poleis/ExperimentalFabricMod"
   },
 
   "license": "MIT",
-  "icon": "icon.png",
+  "icon": "assets/experimental-fabric-mod/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "org.ugcp.example.ExampleMod"
+      "beer.ugcp.ExperimentalFabricMod.ExperimentalFabricMod"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "experimental-fabric-mod.mixins.json"
   ],
 
   "depends": {
