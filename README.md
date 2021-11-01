@@ -1,4 +1,4 @@
-# Fabric Example Mod
+# Experimental Fabric Mod
 
 ## Setup
 
