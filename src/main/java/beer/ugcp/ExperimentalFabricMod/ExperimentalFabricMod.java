@@ -39,6 +39,8 @@ public class ExperimentalFabricMod implements ModInitializer {
 					.setNbt(new NBTBuilder()
 							.putNewNBT("Ingredients")
 							.putInt("Fe2O3",144)
+							.putInt("CaCO3", 6)
+							.putInt("MgCO3", 6)
 							.build())
 					.build()))
 			.build();

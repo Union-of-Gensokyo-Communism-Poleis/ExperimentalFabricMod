@@ -39,7 +39,6 @@ public class MaterialPile extends Item {
                 nbtCompound.getCompound(MATERIAL_PILE_INGREDIENTS_KEY)
                 : new NbtCompound();
     }
-
     /**
      * <h3>implements right click use method</h3>
      * @param world Current world.
@@ -47,7 +46,6 @@ public class MaterialPile extends Item {
      * @param hand  Hand that player used with.
      * @return Action result.
      */
-
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand){
         ItemStack itemStack = user.getStackInHand(hand);
         NbtCompound nbtCompound =
