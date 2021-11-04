@@ -13,6 +13,13 @@ import net.minecraft.world.World;
  */
 public class MaterialPile extends Item {
     public static final String MATERIAL_PILE_INGREDIENTS_KEY = "Ingredients";
+
+    /**
+     * <h3>Constructor provided by Mojang</h3>
+     */
+    public MaterialPile(Settings settings) {
+        super(settings);
+    }
     /**
      * <h3>NBT structure of Material Pile</h3>
      * <pre>
@@ -32,16 +39,23 @@ public class MaterialPile extends Item {
                 nbtCompound.getCompound(MATERIAL_PILE_INGREDIENTS_KEY)
                 : new NbtCompound();
     }
-    public MaterialPile(Settings settings) {
-        super(settings);
-    }
+
+    /**
+     * <h3>implements right click use method</h3>
+     * @param world Current world.
+     * @param user  Player who used the item.
+     * @param hand  Hand that player used with.
+     * @return Action result.
+     */
+
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand){
         ItemStack itemStack = user.getStackInHand(hand);
-        NbtCompound nbtCompound = itemStack.getNbt();
-        assert nbtCompound != null;
-        for (String i: nbtCompound.getCompound(MATERIAL_PILE_INGREDIENTS_KEY).getKeys()) {
-            System.out.println(i+": "
-                    +nbtCompound.getCompound(MATERIAL_PILE_INGREDIENTS_KEY).getInt(i));
+        NbtCompound nbtCompound =
+                itemStack.getNbt() != null?
+                itemStack.getNbt().getCompound(MATERIAL_PILE_INGREDIENTS_KEY)
+                : new NbtCompound();
+        for (String i: nbtCompound.getKeys()) {
+            System.out.println(i+": " +nbtCompound.getInt(i));
         }
         return TypedActionResult.consume(itemStack);
     }
