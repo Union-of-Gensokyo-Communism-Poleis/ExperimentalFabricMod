@@ -5,8 +5,18 @@ import net.minecraft.util.Pair;
 import java.util.*;
 import java.util.regex.*;
 
+/**
+ * <h1>This class provide chemical formula handling support.</h1>
+ */
 public final class ChemicalHelper {
+//To slice chemical formula with this pattern.
     private final Pattern PATTERN = Pattern.compile("([A-Z][a-z]?)|([()\\[\\]{}])|([0-9])*");
+
+    /**
+     * <h3>Internal parsing chemical formula string.</h3>
+     * @param string Formula
+     * @return Pair vector of every element atoms' amount.
+     */
     public Vector<Pair<String,Integer>> parseChemFormula_(String string){
         final Vector<Pair<String,Integer>> rtn = new Vector<>();
         final String[] subFormulas = string.split("\\.");
@@ -62,16 +72,35 @@ public final class ChemicalHelper {
         }
         return rtn;
     }
+
+    /**
+     * <h3>Internal function to merge two pair vector</h3>
+     * @param dest Destination
+     * @param src Source
+     */
     private void mergeAtoms(Vector<Pair<String,Integer>> dest,Vector<Pair<String,Integer>> src){
         for(Pair<String,Integer> i : src){
             addAtoms(dest,i.getLeft(),i.getRight());
         }
     }
+
+    /**
+     * <h3>Internal function to multiply atoms' amount</h3>
+     * @param pairs Pair vector
+     * @param factor Factor
+     */
     private void multiplyAtoms(Vector<Pair<String,Integer>> pairs, int factor){
         for(Pair<String,Integer> i: pairs){
             i.setRight(i.getRight()*factor);
         }
     }
+
+    /**
+     * <h3>Internal function to add single element's atom into the vector</h3>
+     * @param pairs Pair vector
+     * @param atom Element
+     * @param amount Amount
+     */
     private void addAtoms(Vector<Pair<String,Integer>> pairs, String atom, int amount){
         for(Pair<String,Integer> i: pairs){
             if(i.getLeft().equals(atom)){

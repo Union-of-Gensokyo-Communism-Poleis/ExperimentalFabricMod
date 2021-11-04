@@ -9,7 +9,7 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 /**
- * Universal material pile class.
+ * <h1>Universal material pile class.</h1>
  */
 public class MaterialPile extends Item {
     public static final String MATERIAL_PILE_INGREDIENTS_KEY = "Ingredients";
@@ -21,7 +21,7 @@ public class MaterialPile extends Item {
         super(settings);
     }
     /**
-     * <h3>NBT structure of Material Pile</h3>
+     * <h1>NBT structure of Material Pile</h1>
      * <pre>
      * "Ingredients":
      * {
