@@ -1,6 +1,7 @@
 package beer.ugcp.ExperimentalFabricMod;
 
 import beer.ugcp.ExperimentalFabricMod.Items.EXPItem;
+import beer.ugcp.ExperimentalFabricMod.Items.MaterialPileItem.MaterialPile;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -25,12 +26,16 @@ public class ExperimentalFabricMod implements ModInitializer {
 	public static final EXPItem EXP_ITEM = new EXPItem(
 			new FabricItemSettings().group(ExperimentalFabricMod.EFM_Group).maxCount(64)
 	);
+	public static final MaterialPile EXP_MP = new MaterialPile(
+			new FabricItemSettings().group(ExperimentalFabricMod.EFM_Group).maxCount(1)
+	);
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID,"exp_item"), EXP_ITEM);
+		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "material_pile"), EXP_MP);
 		LOGGER.info("Hello Fabric world!");
 	}
 }
