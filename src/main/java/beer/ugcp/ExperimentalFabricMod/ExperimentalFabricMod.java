@@ -2,6 +2,7 @@ package beer.ugcp.ExperimentalFabricMod;
 
 import beer.ugcp.ExperimentalFabricMod.Items.EXPItem;
 import beer.ugcp.ExperimentalFabricMod.Items.MaterialPileItem.MaterialPile;
+import beer.ugcp.ExperimentalFabricMod.Recipe.MaterialPileRecipe;
 import beer.ugcp.ExperimentalFabricMod.Utilities.Builders.ItemStackBuilder;
 import beer.ugcp.ExperimentalFabricMod.Utilities.Builders.NBTBuilder;
 import net.fabricmc.api.ModInitializer;
@@ -49,7 +50,7 @@ public class ExperimentalFabricMod implements ModInitializer {
 		// Proceed with mild caution.
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID,"exp_item"), EXP_ITEM);
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "material_pile"), EXP_MP);
-
+		Registry.register(Registry.RECIPE_TYPE, new Identifier(MOD_ID, MaterialPileRecipe.Type.ID), MaterialPileRecipe.Type.INSTANCE);
 		LOGGER.info("Hello Fabric world!");
 	}
 }
