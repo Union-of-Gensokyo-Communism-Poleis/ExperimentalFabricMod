@@ -4,19 +4,15 @@ import beer.ugcp.ExperimentalFabricMod.Items.EXPItem;
 import beer.ugcp.ExperimentalFabricMod.Items.MaterialPileItem.MaterialPile;
 import beer.ugcp.ExperimentalFabricMod.Utilities.Builders.ItemStackBuilder;
 import beer.ugcp.ExperimentalFabricMod.Utilities.Builders.NBTBuilder;
-import com.google.common.base.Optional;
-import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.command.argument.ItemStackArgument;
 
 public class ExperimentalFabricMod implements ModInitializer {
 	// This logger is used to write text to the console and the log file.

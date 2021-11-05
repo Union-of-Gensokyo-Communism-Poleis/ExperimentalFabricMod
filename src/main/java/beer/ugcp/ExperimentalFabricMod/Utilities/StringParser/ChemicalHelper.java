@@ -32,22 +32,22 @@ public final class ChemicalHelper {
                         if(tileStack.empty())break;
                         j = tileStack.pop();
                         if(j.matches("[A-Z][a-z]?")){
-                            addAtoms(buffer,j,1);
+                            addComponent(buffer,j,1);
                         }else if(j.matches("[0-9]*")){
                             if(tileStack.empty()){
-                                multiplyAtoms(buffer,Integer.parseInt(j));
+                                multiplyIngredients(buffer,Integer.parseInt(j));
                                 break;
                             }else{
                                 k = tileStack.pop();
-                                addAtoms(buffer,k,Integer.parseInt(j));
+                                addComponent(buffer,k,Integer.parseInt(j));
                             }
                         }
                     }
-                    mergeAtoms(rtn,buffer);
+                    mergeIngredients(rtn,buffer);
                     break;
                 }
                 if(flag){
-                    multiplyAtoms(buffer,Integer.parseInt(matcher.group(0)));
+                    multiplyIngredients(buffer,Integer.parseInt(matcher.group(0)));
                     flag = false;
                     continue;
                 }
@@ -58,9 +58,9 @@ public final class ChemicalHelper {
                         String k;
                         if(j.matches("[0-9]*")){
                             k = tileStack.pop();
-                            addAtoms(buffer,k,Integer.parseInt(j));
+                            addComponent(buffer,k,Integer.parseInt(j));
                         }else if(j.matches("[A-Z][a-z]?")){
-                            addAtoms(buffer,j,1);
+                            addComponent(buffer,j,1);
                         }else if(j.equals("(")){
                             break;
                         }
@@ -78,9 +78,9 @@ public final class ChemicalHelper {
      * @param dest Destination
      * @param src Source
      */
-    private void mergeAtoms(Vector<Pair<String,Integer>> dest,Vector<Pair<String,Integer>> src){
+    public static void mergeIngredients(Vector<Pair<String,Integer>> dest, Vector<Pair<String,Integer>> src){
         for(Pair<String,Integer> i : src){
-            addAtoms(dest,i.getLeft(),i.getRight());
+            addComponent(dest,i.getLeft(),i.getRight());
         }
     }
 
@@ -89,7 +89,7 @@ public final class ChemicalHelper {
      * @param pairs Pair vector
      * @param factor Factor
      */
-    private void multiplyAtoms(Vector<Pair<String,Integer>> pairs, int factor){
+    public static void multiplyIngredients(Vector<Pair<String,Integer>> pairs, int factor){
         for(Pair<String,Integer> i: pairs){
             i.setRight(i.getRight()*factor);
         }
@@ -101,7 +101,7 @@ public final class ChemicalHelper {
      * @param atom Element
      * @param amount Amount
      */
-    private void addAtoms(Vector<Pair<String,Integer>> pairs, String atom, int amount){
+    public static void addComponent(Vector<Pair<String,Integer>> pairs, String atom, int amount){
         for(Pair<String,Integer> i: pairs){
             if(i.getLeft().equals(atom)){
                 i.setRight(i.getRight()+amount);
