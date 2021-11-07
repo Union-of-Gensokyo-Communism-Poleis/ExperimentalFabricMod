@@ -13,7 +13,8 @@ import java.util.Vector;
 
 import static beer.ugcp.ExperimentalFabricMod.ExperimentalFabricMod.EXP_MP;
 import static beer.ugcp.ExperimentalFabricMod.Items.MaterialPileItem.MaterialPileTools.GetMergedPile;
-public class MaterialPileRecipe implements Recipe<CraftingInventory> {
+public class MaterialPileRecipe implements Recipe<CraftingInventory>, CraftingRecipe {
+    private static final RecipeSerializer<ShapelessRecipe> SERIALIZER = RecipeSerializer.SHAPELESS;
     private final DefaultedList<Ingredient> input;
     private final ItemStack result = new ItemStack(EXP_MP,1);
     private final Identifier id;
@@ -63,7 +64,7 @@ public class MaterialPileRecipe implements Recipe<CraftingInventory> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return null;
+        return SERIALIZER;
     }
 
     public static class Type implements RecipeType<MaterialPileRecipe>{

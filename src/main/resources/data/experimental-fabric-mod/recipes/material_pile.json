@@ -1,20 +1,17 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "experimental-fabric-mod:material_pile_recipe",
   "pattern": [
-    "WWW",
-    "WR ",
-    "WWW"
+    "WW ",
+    "   ",
+    "   "
   ],
   "key": {
     "W": {
-      "tag": "minecraft:logs"
-    },
-    "R": {
-      "item": "minecraft:redstone"
+      "tag": "experimental-fabric-mod:material_pile"
     }
   },
   "result": {
-    "item": "tutorial:fabric_item",
+    "item": "experimental-fabric-mod:material_pile",
     "count": 4
   }
 }
