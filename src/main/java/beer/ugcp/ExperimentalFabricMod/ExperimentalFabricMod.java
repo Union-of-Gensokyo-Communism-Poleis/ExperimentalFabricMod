@@ -12,6 +12,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeSerializer;
+import net.minecraft.recipe.ShapelessRecipe;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -52,8 +53,16 @@ public class ExperimentalFabricMod implements ModInitializer {
 		// Proceed with mild caution.
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID,"exp_item"), EXP_ITEM);
 		Registry.register(Registry.ITEM, new Identifier(MOD_ID, "material_pile"), EXP_MP);
-		Registry.register(Registry.RECIPE_TYPE, new Identifier(MOD_ID, MaterialPileRecipe.Type.ID), MaterialPileRecipe.Type.INSTANCE);
-		//Registry.register(Registry.RECIPE_SERIALIZER,new Identifier(MOD_ID, "material_pile_recipe_serializer"),RecipeSerializer.SHAPELESS);
+		Registry.register(
+				Registry.RECIPE_TYPE,
+				new Identifier(MOD_ID, MaterialPileRecipe.Type.ID),
+				MaterialPileRecipe.Type.INSTANCE
+		);
+		Registry.register(
+				Registry.RECIPE_SERIALIZER,
+				new Identifier(MOD_ID, "material_pile_recipe_serializer"),
+				MaterialPileRecipe.MaterialPileRecipeSerializer.INSTANCE
+		);
 		LOGGER.info("Hello Fabric world!");
 	}
 }

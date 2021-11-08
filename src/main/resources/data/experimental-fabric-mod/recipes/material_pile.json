@@ -1,5 +1,5 @@
 {
-  "type": "experimental-fabric-mod:material_pile_recipe",
+  "type": "experimental-fabric-mod:material_pile_recipe_serializer",
   "pattern": [
     "WW ",
     "   ",
